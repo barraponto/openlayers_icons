@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * @defgroup Open Layers Icons: Provides custom icon styles to OpenLayers
+ * This module has no UI; it only implements hooks in OpenLayers 2.x
+ * Based upon the openlayers_icons module, since they rock.
+ * This will only import PNG's.
+ */
+
+/**
+ * Define Module Constants
+ */
+define("OPENLAYERS_ICONS_MODULE_PATH", drupal_get_path('module', 'openlayers_icons'));
+define("OPENLAYERS_ICONS_IMAGES_DIRECTORY", OPENLAYERS_ICONS_MODULE_PATH .'/images');
+
+/**
+ * Module Include files.
+ */
+include_once(OPENLAYERS_ICONS_MODULE_PATH .'/includes/class.openlayers_icons.inc');
+
+/**
+ * Implementation of hook_ctools_plugin_api().
+ */
+function openlayers_icons_ctools_plugin_api($module, $api) {
+  if ($module == "openlayers") {
+    switch ($api) {
+      case 'openlayers_styles':
+        return array('version' => 1);
+    }
+  }
+}
+
+/**
+ * OpenLayers pre-alpha3 compatibility
+ */
+function openlayers_icons_openlayers_styles_info() {
+  return openlayers_icons_openlayers_styles();
+}
+
+/**
+ * Implementation of hook_openlayers_styles()
+ */
+function openlayers_icons_openlayers_styles() {
+  //Scan our directories for images, set variables and make styles.
+  variable_set('openlayers_icons_icon_templates', openlayersIcons::_scanImages());
+  //Load styles file and run our styles.
+  module_load_include('inc', 'openlayers_icons', 'includes/openlayers_icons.styles');
+  return _openlayers_icons_openlayers_styles();
+}

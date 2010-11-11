@@ -1,0 +1,44 @@
+<?php
+/**
+ * Define install constants
+ */
+//Set your module name here. This has to stay here, because the install does not invoke the whole module and playing around with includes is not a good idea on install
+define('INSTALL_MODULE_NAME', 'Open Layers Icons');
+define("OPENLAYERS_ICONS_MODULE_PATH", drupal_get_path('module', 'openlayers_icons'));
+define("OPENLAYERS_ICONS_IMAGES_DIRECTORY", OPENLAYERS_ICONS_MODULE_PATH .'/images');
+include_once(OPENLAYERS_ICONS_MODULE_PATH .'/includes/class.openlayers_icons.inc');
+
+/**
+ * Implementation of hook_install.
+ */
+function openlayers_icons_install() {
+  //Set our variables.
+  //Scan our initial templates, and get the icons back into our styles.
+  variable_set('openlayers_icons_icon_templates', openlayersIcons::_scanImages());
+}
+
+/**
+ * Implementation of hook_uninstall.
+ */
+function openlayers_icons_uninstall() {
+  //Del our variables
+  variable_del('openlayers_icons_icon_templates');
+  //Set a message when we uninstall the module.
+  drupal_set_message( t('@module module uninstalled successfully.', array( '@module' => INSTALL_MODULE_NAME ) ) );
+}
+
+/**
+ * Implementation of hook_enable.
+ */
+function openlayers_icons_enable() {
+  //Set a message when we enable the module
+  drupal_set_message( t('@module module has been enabled successfully.', array( '@module' => INSTALL_MODULE_NAME ) ) );
+}
+
+/**
+ * Implementation of hook_disable.
+ */
+function openlayers_icons_disable() {
+  //Set a message when we disable the module.
+  drupal_set_message( t('@module module has been disabled successfully.', array( '@module' => INSTALL_MODULE_NAME ) ) ); 
+}
