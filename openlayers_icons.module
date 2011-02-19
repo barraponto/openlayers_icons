@@ -1,10 +1,12 @@
 <?php
-
 /**
- * @defgroup Open Layers Icons: Provides custom icon styles to OpenLayers
+ * @file openlayers_icons.module
+ * @name Open Layers Icons: Provides custom icon styles to OpenLayers
  * This module has no UI; it only implements hooks in OpenLayers 2.x
  * Based upon the openlayers_icons module, since they rock.
  * This will only import PNG's.
+ * @author Paul Huntsberger <paul@bluetent.com>
+ * @version 6.x-beta1
  */
 
 /**

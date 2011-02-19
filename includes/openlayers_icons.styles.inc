@@ -1,14 +1,11 @@
 <?php
-// $Id: openlayers_icons.styles.inc,v 1.3 2010/03/12 18:56:25 tmcw Exp $
-
 /**
- * @file
- * Definition for Maki icons as OpenLayers 2.x styles
+ * @file openlayers_icons.styles.inc
+ * Use the variable openlayers_icons_icon_templates as our list of icons to uses as Open Layers Styles.
  */
 
 function _openlayers_icons_openlayers_styles() {
   global $base_url;
-  //kpr($base_url);
   //Clear the styles array, so we can always start a fresh implementation.
   $styles = array();
   //Icon templates are just an array of icons and their names.
@@ -34,6 +31,5 @@ function _openlayers_icons_openlayers_styles() {
       $styles[ereg_replace('[^A-Za-z0-9]', '_', $style->name)] = $style;
     }
   }
-  //kpr($styles);
   return $styles;
 }

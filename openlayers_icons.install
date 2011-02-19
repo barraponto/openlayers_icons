@@ -1,6 +1,8 @@
 <?php
 /**
- * Define install constants
+ * @name Open Layers Icons: Intall
+ * @file openlayers_icons.install
+ * @version 1.0
  */
 //Set your module name here. This has to stay here, because the install does not invoke the whole module and playing around with includes is not a good idea on install
 define('INSTALL_MODULE_NAME', 'Open Layers Icons');

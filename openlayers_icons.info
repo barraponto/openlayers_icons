@@ -1,6 +1,6 @@
 name           = OpenLayers Icons
 description    = Custom Icons for OpenLayers
-version        = 1.0-aplha
+version        = 6.x-beta1
 core           = 6.x
 package        = OpenLayers
 dependencies[] = openlayers

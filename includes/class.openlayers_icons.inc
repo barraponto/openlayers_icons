@@ -1,15 +1,11 @@
 <?php
 /**
- * @file
- * Definition for custom icons as OpenLayers 2.x styles
+ * @file class.openlayers_icons.inc
+ * Class for dynamically generated custom icons as OpenLayers 2.x styles
+ * This allows us to use virtually any properly sized icon for open layer maps.
  */
 
 class openlayersIcons {
-
-    //Build any object references we need here - when we include this file, PHP will looks for the construct and give us this object automatically.
-  function __construct() {
-    //Constructor functions.
-  }
 
   //When we are done with our object, or do not reference it anymore PHP will automatically try and kill it off from memory if we have this set.
   function __destruct() {
@@ -22,6 +18,7 @@ class openlayersIcons {
    * Scans images in the modules images directory for a list of icons to create template files.
    */
   public static function _scanImages() {
+    //Icon templates, thanks MAKI for the roadmap!
     $icon_templates = array();
     //Check the base directory for permissions.
     $directory = OPENLAYERS_ICONS_IMAGES_DIRECTORY;
