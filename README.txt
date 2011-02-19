@@ -1,6 +1,6 @@
 ##Summary
 
-The OpenLayers Icons module allows you to add icons as styles to the Open Layers Styles section. This module looks in the %module_name/images folder for images with the .png extension and adds them automatically as icons.
+The OpenLayers Icons module allows you to add icons as styles to the Open Layers Styles section. This module looks in the %module_name/images folder for images with the .png extension and adds them automatically as icons. This is based off the excellent work of MapBox and the MAKI layer styles.
 
 This beta release is just the module.
 
